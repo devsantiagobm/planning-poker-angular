@@ -1,0 +1,26 @@
+<div class="new-classroom">
+
+    <div class="new-classroom__loader" [@animateLogo] *ngIf="isLoadingPage">
+        <picture class="new-classroom__loader-picture">
+            <img src="/icons/poker-pragma-icon.svg" alt="Pragma Poker logo">
+            <img src="/icons/pragma-logo.svg" alt="Pragma logo">
+        </picture>
+    </div>
+
+
+    <main [@content] class="new-classroom__main" *ngIf="!isLoadingPage">
+        <header class="new-classroom__header">
+            <picture class="new-classroom__header-picture">
+                <img src="/icons/poker-pragma-icon.svg" alt="Pragma Poker logo" class="new-classroom__header-logo">
+                <span>Crear partida</span>
+            </picture>
+        </header>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" class="new-classroom__content">
+            <atom-input [label]="'Nombra la partida'" [error]="getError('name')" [control]="form.controls.name" [id]="'name'" [ngClass]="'new-classroom__input'" />
+            <atom-button [isLoading]="isLoadingRequest" [isDisabled]="form.invalid" [ngClass]="'new-classroom__button'" >Crear partida</atom-button>    
+            <span [@error-message] class="new-classroom__error" *ngIf="errorInRequest">{{errorInRequest}}</span>
+        </form>
+
+    </main>
+</div>

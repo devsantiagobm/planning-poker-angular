@@ -1,0 +1,28 @@
+.classroom{
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0 0;
+    }
+
+    &__title, &__invite-players-button, &__picture-pragma-icon{
+        flex: 1;
+    }
+
+    &__title{
+        text-align: center;
+    }
+
+    &__invite-players-button{
+        display: flex;
+        justify-content: flex-end;
+    }
+}

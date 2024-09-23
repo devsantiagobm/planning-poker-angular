@@ -1,0 +1,9 @@
+<div class="{{ containerClass }} input">
+
+    <div class="input__main">
+        <label class="input__label" [htmlFor]="id" *ngIf="label">{{label}}</label>
+        <input type="text" class="input__container" [id]="id" [name]="id" [formControl]="control">
+    </div>
+
+    <span [@error-message] class="input__error" *ngIf="error">{{error}}</span>
+</div>

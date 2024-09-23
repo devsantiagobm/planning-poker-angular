@@ -1,0 +1,9 @@
+<div class="radio-input">
+    <div class="radio-input__list">
+        <label class="radio-input__label" *ngFor="let option of options" [htmlFor]="option.value">
+            <span>{{option.label}}</span>
+            <input class="radio-input__input" hidden type="radio" [id]="option.value" [value]="option.value" name="a" [formControl]="control"/>
+            <span class="radio-input__checker"></span>
+        </label>
+    </div>
+</div>

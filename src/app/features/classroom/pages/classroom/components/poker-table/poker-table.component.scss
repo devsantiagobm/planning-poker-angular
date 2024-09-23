@@ -1,0 +1,84 @@
+@use "theme" as *;
+
+.poker-table {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px repeat(3, auto) 100px;
+    grid-template-rows: 100px auto 100px;
+    align-items: center;
+    justify-content: center;
+
+
+    &__table {
+        grid-row: 2;
+        grid-column: 2 / 5;
+        aspect-ratio: 1.75 / 1;
+        width: clamp(300px, 35dvw, 600px);
+        height: auto;
+        border: 2px solid #6429CD;
+        box-shadow: 0px 0px 24px -8px #BDBDFF33 inset, 0px 0px 24px -80px #6429CD;
+        border-radius: 200px;
+        padding: clamp(14px, 1dvw, 18px);
+    }
+
+    &__table-inner {
+        border: 2px solid #BDBDFF99;
+        width: 100%;
+        border-radius: 200px;
+        height: 100%;
+        padding: clamp(8px, .8dvw, 16px);
+    }
+
+    &__table-inner-two {
+        border: 1px solid #6429CD;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        border-radius: 200px;
+        background: hsla(262, 66%, 15%, 0.25);
+        height: 100%;
+    }
+
+    &__card {
+        border: solid 1px red;
+        &:nth-child(1) {
+            grid-row: 3;
+            grid-column: 3;
+        }
+
+        &:nth-child(2) {
+            grid-row: 1;
+            grid-column: 3;
+          
+        }
+        &:nth-child(3) {
+            grid-row: 2;
+            grid-column: 1;
+          
+        }
+        &:nth-child(4) {
+            grid-row: 2;
+            grid-column: 5;
+          
+        }
+        &:nth-child(5) {
+            grid-row: 1;
+            grid-column: 2;
+          
+        }
+        &:nth-child(7) {
+            grid-row: 1;
+            grid-column: 4;
+        }
+        &:nth-child(8) {
+            grid-row: 3;
+            grid-column: 2;
+ 
+        }
+        &:nth-child(6) {
+            grid-row: 3;
+            grid-column: 4;
+          
+        }
+    }
+}

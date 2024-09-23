@@ -1,0 +1,17 @@
+<button class="button" [ngClass]="{
+          'button--first': variant === 'first',
+          'button--second': variant === 'second',
+          'button--third': variant === 'third',
+          'button--first--disabled': variant === 'first' && isDisabled,
+          'button--second--disabled': variant === 'second' && isDisabled,
+          'button--third--disabled': variant === 'third' && isDisabled
+        }">
+
+  <ng-content *ngIf="!isLoading"></ng-content>
+  <div class="button__loader" *ngIf="isLoading">
+
+    <div class="button__loader-box">
+      <atom-loader />
+    </div>
+  </div>
+</button>

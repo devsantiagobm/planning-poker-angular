@@ -1,0 +1,46 @@
+@use "theme" as *;
+
+.radio-input {
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    &__checker {
+        width: 16px;
+        height: 16px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: solid 1px $pink;
+        box-shadow: 0px 0px 12px 0px #c88eff4d inset, 0px 0px 56px -24px #6429CD;
+        position: relative;
+
+
+        &::before {
+            content: "";
+            width: 8px;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 8px;
+            background-color: $pink;
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity .15s ease;
+        }
+    }
+
+    &__input:checked+&__checker::before {
+        opacity: 1;
+    }
+}

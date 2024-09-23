@@ -1,0 +1,18 @@
+@use "theme" as *;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: color-mix(in srgb, $purple 100%, transparent 75%);
+    backdrop-filter: blur(4px);
+    display: grid;
+    place-items: center;
+
+    &__container {
+        border-radius: 18px;
+        border: solid 1px $pink;
+        background-color: $purple;
+        box-shadow: 0px 0px 12px 0px #c88eff4d inset, 0px 0px 56px -24px #6429CD;
+        width: clamp(450px, 30dvw, 550px);
+    }
+}

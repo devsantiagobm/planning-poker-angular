@@ -1,0 +1,8 @@
+@use "theme" as *;
+
+.container {
+    color: $font;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: $font-regular;
+}

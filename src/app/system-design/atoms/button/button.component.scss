@@ -1,0 +1,67 @@
+@use "theme" as *;
+
+.button {
+    border-radius: 32px;
+    font-weight: $font-semibold;
+    padding: 20px 24px;
+    line-height: 0;
+    cursor: pointer;
+
+    &--first {
+        color: $purple;
+        background-color: $font;
+        transition: filter .2s ease;
+
+        &:hover {
+            filter: brightness(75%);
+        }
+
+        &--disabled {
+           opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    &--second {
+        background-color: transparent;
+        outline: solid 1px $font;
+        transition: background-color .2s ease, color .2s ease;
+
+        &:hover:not(&--disabled){
+            background-color: $font;
+            color: $purple;
+        }
+
+        &--disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    }
+
+    &--third {
+        background-color: $pink;
+        transition: filter .2s ease;
+
+        &--disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        &:hover:not(&--disabled){
+            filter: brightness(75%);
+        }
+    }
+
+
+    &__loader{
+        display: grid;
+        place-items: center;
+        min-width: 50px;
+        position: relative;
+
+        &-box{
+            position: absolute;
+        }
+        
+    }
+}
