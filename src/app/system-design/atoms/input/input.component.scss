@@ -17,14 +17,21 @@
     }
 
     &__container {
-        border: 1px solid $pink;
-
+        border: 1px solid $pink-light;
         border-radius: 24px;
         padding: 8px 16px;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
         transition: box-shadow .2s ease;
 
-        &:focus {
+        &:focus:not(&--readonly) {
             box-shadow: 0px 0px 20px 0px #BDBDFF33 inset, 0px 0px 15px 0px #6429CD;
+        }
+
+        &--readonly{
+            pointer-events: none;
+            cursor: not-allowed;
         }
     }
 

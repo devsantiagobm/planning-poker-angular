@@ -1,0 +1,98 @@
+@use "theme" as *;
+@use "animations" as *;
+
+
+.poker-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 56px;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .2s ease;
+    @include showin-animation(.3s);
+
+    &__hidden {
+        opacity: 0;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: $font-semibold;
+    }
+
+    &__card-list {
+        display: flex;
+        gap: 16px;
+
+        &--result{
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    
+    &__card-result-container{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        font-size: .9rem;
+        font-weight: $font-medium;
+    }
+
+    &__result{
+        @include showin-animation(.3s);
+        display: flex;
+        gap: 56px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 56px;
+    }
+
+    &__average-container{
+        display: flex;
+        max-width: fit-content;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        gap: 8px;
+
+
+        &--hidden{
+            opacity: 0;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+
+    &__average{
+        font-size: 2rem;
+        font-weight: $font-bold;
+    }
+}
+
+@media only screen and (min-width: 1674px) {
+    .poker-footer {
+
+        &__title {
+            font-size: 1.5rem;
+            font-weight: $font-semibold;
+        }
+
+        ::ng-deep &__card {
+            font-size: 1.2rem !important;
+        }
+
+    }
+}
+
+//PORTATILES AND BIG TABLETS
+@media only screen and (max-width: 1374px) {
+    .poker-footer, .poker-footer__result {
+        margin: 0 0 24px;
+    }
+}

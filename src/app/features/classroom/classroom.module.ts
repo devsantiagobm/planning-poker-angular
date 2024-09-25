@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NewPlayerComponent } from './pages/classroom/components/new-player/new-player.component';
 import { PokerTableComponent } from './pages/classroom/components/poker-table/poker-table.component';
+import { PokerFooterComponent } from './pages/classroom/components/poker-footer/poker-footer.component';
+import { InvitePlayersComponent } from './pages/classroom/components/invite-players/invite-players.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { PokerTableComponent } from './pages/classroom/components/poker-table/po
     ClassroomComponent,
     NewPlayerComponent,
     PokerTableComponent,
+    PokerFooterComponent,
+    InvitePlayersComponent,
   ],
   imports: [
     CommonModule,

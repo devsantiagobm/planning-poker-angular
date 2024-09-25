@@ -1,6 +1,15 @@
-<div class="modal">
+<div class="modal" [@modalAnimation] *ngIf="canShow">
 
     <div class="modal__container">
+        <div class="modal__header" *ngIf="title || closeModal">
+            <div>
+                <span *ngIf="title">{{title}}</span>
+            </div>
+
+            <button (click)="closeModal()" class="modal__close" *ngIf="closeModal">
+                <ng-icon name="ionClose"></ng-icon>
+            </button>
+        </div>
         <ng-content></ng-content>
     </div>
 </div>

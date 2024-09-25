@@ -1,13 +1,22 @@
 <div class="poker-table">
-    <div class="poker-table__card" *ngFor="let item of [1, 2, 3, 4, 5, 6,7,8]">
-    
-        {{item}}
-    </div>
+
+    <ng-container *ngIf="players.length > 0">
+        <div [@card] class="poker-table__card" *ngFor="let player of players; trackBy: trackByID">
+            <atom-card [isActive]="!!(player.vote) && !results" interactivity="go-up" *ngIf="player.type === 'player'">
+                <span [@card] *ngIf="results && player.vote"> {{player.vote}}</span>
+            </atom-card>
+            <atom-avatar *ngIf="player.type === 'viewer'" [username]="player.username" />
+            <span>
+                <ng-container *ngIf="userIsOwner(player)">👑</ng-container>{{player.username}}
+            </span>
+        </div>
+    </ng-container>
 
     <div class="poker-table__table">
         <div class="poker-table__table-inner">
             <div class="poker-table__table-inner-two">
-                <atom-button  variant="third">Revelar cartas</atom-button>
+                <atom-button class="poker-table__button" *ngIf="canShowRevealCards" (click)="revealCards()" variant="third">Revelar cartas</atom-button>
+                <atom-button class="poker-table__button" *ngIf="canShowResetCards" (click)="resetCards()" variant="third">Nueva votación</atom-button>
             </div>
         </div>
     </div>

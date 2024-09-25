@@ -1,17 +1,45 @@
 import { RadioInput } from '@/app/system-design/atoms/radio-input/radio-input.interface';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { SocketsService } from '../../sockets.service';
+import { SocketsService } from '../../services/sockets.service';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'classroom-new-player',
     templateUrl: './new-player.component.html',
-    styleUrl: './new-player.component.scss'
+    styleUrl: './new-player.component.scss',
+    animations: [
+        trigger('modal', [
+            transition(':enter', [
+                style({
+                    transform: 'translateY(8px) translateX(0px)',
+                    opacity: 0,
+                }),
+                animate('300ms ease-out', style({
+                    transform: 'translateY(0)',
+                    opacity: 1,
+                }))
+            ]),
+
+            transition(':leave', [
+                animate('300ms ease', style({
+                    transform: 'translateX(64px)',
+                    opacity: 0,
+                }))
+            ])
+        ]),
+    ]
 })
 export class NewPlayerComponent {
     isFormSubmited = false
 
-    constructor(private socketsService: SocketsService){}
+    constructor(private socketsService: SocketsService, private userService: UserService) { }
+
+    get players() {
+
+        return this.socketsService.players
+    }
 
 
     public TypeOfPlayers: RadioInput[] = [
@@ -26,9 +54,10 @@ export class NewPlayerComponent {
     ]
 
     public form = new FormGroup({
-        name: new FormControl("", [Validators.required, Validators.minLength(5),Validators.maxLength(20), customNameValidator()]),
+        username: new FormControl("Jugador", [Validators.required, Validators.minLength(5), Validators.maxLength(20), customNameValidator()]),
         type: new FormControl(this.TypeOfPlayers[0].value)
     })
+
 
     getError(field: keyof FormModel): string | null {
 
@@ -54,13 +83,19 @@ export class NewPlayerComponent {
         this.isFormSubmited = true
         if (this.form.invalid) return;
 
-        this.socketsService.joinClassroom()
+        const username = this.form.get('username')?.value ?? "";
+        const type = this.form.get('type')?.value ?? "player";
+
+        this.userService.updateUsernameAndType({ username, type: type as "viewer" | "player" })
+
+        this.socketsService.joinClassroom({ username, type })
 
     }
 }
 
 interface FormModel {
-    name: FormControl<string | null>;
+    username: FormControl<string>;
+    type: FormControl<"viewer" | "player">
 }
 
 function customNameValidator(): ValidatorFn {

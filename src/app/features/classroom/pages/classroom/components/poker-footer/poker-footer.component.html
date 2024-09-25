@@ -1,0 +1,30 @@
+<div class="poker-footer" *ngIf="!results" [ngClass]="{'poker-footer__hidden': !canVote}">
+    <span class="poker-footer__title">Elige una carta 👇</span>
+
+    <div class="poker-footer__card-list">
+        <atom-card (click)="setSelectedCard(item)" [isActive]="item === selectedCard" customClass="poker-footer__card"
+            *ngFor="let item of fibonnaciCards" [interactivity]="'background'"
+            [customWidth]="'clamp(42px, 3dvw, 64px)'">{{item}}</atom-card>
+    </div>
+</div>
+
+<div class="poker-footer__result" *ngIf="results">
+    <!-- For flexbox centering to work correctly, we need the side elements to be the same width. Depending on the design, one is shown and one is hidden -->
+    <div class="poker-footer__average-container poker-footer__average-container--hidden">
+        <span>Promedio:</span>
+        <span class="poker-footer__average">{{results.average}}</span>
+    </div>
+
+    <div class="poker-footer__card-list poker-footer__card-list--result">
+        <div *ngFor="let item of results.amountOfVotes" class="poker-footer__card-result-container">
+            <atom-card customClass="poker-footer__card"
+                [customWidth]="'clamp(42px, 3dvw, 64px)'">{{item.label}}</atom-card>
+            <span>{{item.times}} {{item.times === 1 ? "Voto" : "Votos"}}</span>
+        </div>
+    </div>
+    <div class="poker-footer__average-container">
+        <span>Promedio:</span>
+        <span class="poker-footer__average">{{results.average}}</span>
+    </div>
+
+</div>

@@ -33,4 +33,5 @@ export class InputComponent {
   @Input() control = new FormControl();
   @Input() error: string | null = "";
   @Input() label: string = "";
+  @Input() readonly?: boolean;
 }

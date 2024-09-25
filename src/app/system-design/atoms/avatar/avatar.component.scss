@@ -1,0 +1,14 @@
+@use "theme" as *;
+
+.avatar{
+    aspect-ratio: 1;
+    width: clamp(38px, 2.25dvw, 56px);
+    height: auto;
+    background-color: $pink-ultra-light;
+    border-radius: 50%;
+    line-height: 0;
+    display: grid;
+    place-items: center;
+    font-weight: $font-bold;
+    color: $purple;
+}

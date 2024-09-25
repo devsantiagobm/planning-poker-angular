@@ -5,8 +5,8 @@ import { ClassroomComponent } from './features/classroom/pages/classroom/classro
 import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
-  { path: "classroom/new", component: NewClassroomComponent },
-  { path: "classroom/:id", component: ClassroomComponent },
+  { path: "classroom/new", component: NewClassroomComponent, title: "Planning Poker - Nueva partida" },
+  { path: "classroom/:id", component: ClassroomComponent, title: "Planning Poker" },
   { path: "**", redirectTo: "classroom/new" },
 ];
 

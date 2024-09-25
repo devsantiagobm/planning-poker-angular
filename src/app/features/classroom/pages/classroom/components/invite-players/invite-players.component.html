@@ -1,0 +1,10 @@
+<molecule-modal title="Invitar jugadores" [closeModal]="close.bind(this)" [canShow]="canShowModal">
+
+    <div class="invite-players">
+        <atom-input [readonly]="true" [control]="url" />
+        <div class="invite-players__button-container">
+
+            <atom-button (click)="copyURL()">Copiar link</atom-button>
+        </div>
+    </div>
+</molecule-modal>

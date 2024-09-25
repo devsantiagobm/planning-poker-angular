@@ -7,16 +7,14 @@
         <h1 class="classroom__title">Prueba</h1>
 
         <div class="classroom__invite-players-button">
-            <atom-button variant="second">Invitar jugadores</atom-button>
+            <atom-avatar *ngIf="username" [username]="username"/>
+            <atom-button (click)="openModal('invite-players')" variant="second">Invitar jugadores</atom-button>
         </div>
     </header>
 
 
-    <!-- <classroom-new-player /> -->
-
-    <classroom-poker-table></classroom-poker-table>
-
-    <footer>
-        Desde el footert
-    </footer>
+    <classroom-new-player />
+    <classroom-invite-players  />
+    <classroom-poker-table />
+    <classroom-poker-footer />
 </div>
