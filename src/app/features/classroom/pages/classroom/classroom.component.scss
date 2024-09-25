@@ -1,11 +1,12 @@
 .classroom{
     height: 100dvh;
     max-height: 100dvh;
-    overflow: hidden;
+    overflow-y: hidden;
     display: flex;
+
     flex-direction: column;
     justify-content: space-between;
-
+    
     &__header{
         display: flex;
         justify-content: space-between;
@@ -23,6 +24,8 @@
 
     &__invite-players-button{
         display: flex;
+        gap: 16px;
+        align-items: center;
         justify-content: flex-end;
     }
 }

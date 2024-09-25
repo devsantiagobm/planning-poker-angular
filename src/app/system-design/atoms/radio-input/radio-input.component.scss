@@ -20,21 +20,20 @@
         height: 16px;
         aspect-ratio: 1;
         border-radius: 50%;
-        border: solid 1px $pink;
+        border: solid 1px $pink-light;
         box-shadow: 0px 0px 12px 0px #c88eff4d inset, 0px 0px 56px -24px #6429CD;
-        position: relative;
+        display: grid;
+        place-items: center;
 
 
         &::before {
             content: "";
             width: 8px;
-            left: 50%;
-            top: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            height: 8px;
-            background-color: $pink;
+            height: 8px; 
+            aspect-ratio: 1;
+            background-color: $pink-light;
             border-radius: 50%;
-            position: absolute;
+            position: relative;
             opacity: 0;
             transition: opacity .15s ease;
         }

@@ -1,11 +1,15 @@
 @use "theme" as *;
+@use "animations" as *;
 
 .poker-table {
+    // margin-top: 24px;
     width: 100%;
     display: grid;
     grid-template-columns: 100px repeat(3, auto) 100px;
     grid-template-rows: 100px auto 100px;
     align-items: center;
+    row-gap: clamp(10px, .8dvw, 24px);
+    column-gap: clamp(12px, .8dvw, 20px);
     justify-content: center;
 
 
@@ -13,12 +17,13 @@
         grid-row: 2;
         grid-column: 2 / 5;
         aspect-ratio: 1.75 / 1;
-        width: clamp(300px, 35dvw, 600px);
+        width: clamp(250px, 25dvw, 600px);
         height: auto;
         border: 2px solid #6429CD;
         box-shadow: 0px 0px 24px -8px #BDBDFF33 inset, 0px 0px 24px -80px #6429CD;
         border-radius: 200px;
-        padding: clamp(14px, 1dvw, 18px);
+        padding: clamp(10px, .8dvw, 18px);
+
     }
 
     &__table-inner {
@@ -26,7 +31,7 @@
         width: 100%;
         border-radius: 200px;
         height: 100%;
-        padding: clamp(8px, .8dvw, 16px);
+        padding: clamp(6px, .65dvw, 16px);
     }
 
     &__table-inner-two {
@@ -39,8 +44,16 @@
         height: 100%;
     }
 
+    &__button {
+        @include showin-animation(.2s);
+    }
+
     &__card {
-        border: solid 1px red;
+        display: grid;
+        gap: 8px;
+        place-items: center;
+        // @include showin-animation(.4s);
+
         &:nth-child(1) {
             grid-row: 3;
             grid-column: 3;
@@ -49,36 +62,60 @@
         &:nth-child(2) {
             grid-row: 1;
             grid-column: 3;
-          
+
         }
+
         &:nth-child(3) {
             grid-row: 2;
             grid-column: 1;
-          
+
         }
+
         &:nth-child(4) {
             grid-row: 2;
             grid-column: 5;
-          
+
         }
+
         &:nth-child(5) {
             grid-row: 1;
             grid-column: 2;
-          
+
         }
+
         &:nth-child(7) {
             grid-row: 1;
             grid-column: 4;
         }
+
         &:nth-child(8) {
             grid-row: 3;
             grid-column: 2;
- 
+
         }
+
         &:nth-child(6) {
             grid-row: 3;
             grid-column: 4;
-          
+
         }
+    }
+}
+
+//PORTATILES AND BIG TABLETS
+@media only screen and (max-width: 1374px) {
+    .poker-table {
+
+        &__table {
+            padding: clamp(6px, .5dvw, 12px);
+            width: clamp(250px, 20dvw, 600px);
+        }
+
+
+        &__table-inner {
+            padding: clamp(4px, .5dvw, 12px);
+        }
+
+
     }
 }

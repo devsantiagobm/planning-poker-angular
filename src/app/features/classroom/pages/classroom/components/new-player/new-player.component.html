@@ -1,8 +1,9 @@
-<molecule-modal>
+<molecule-modal [canShow]="players.length == 0">
     <form [formGroup]="form" autocomplete="off" class="new-player" (ngSubmit)="onSubmit()">
-        <atom-input [id]="'name'" [error]="getError('name')" [label]="'Tu nombre'" [control]="form.controls.name" />
+        <atom-input [id]="'name'" [error]="getError('username')" [label]="'Tu nombre'"
+            [control]="form.controls.username" />
         <div class="new-player__radio-input">
-            <atom-radio-input [options]="TypeOfPlayers" [control]="form.controls.type" />
+            <atom-radio-input [options]="TypeOfPlayers" [control]="form.controls.type"/>
         </div>
         <atom-button variant="first" [ngClass]="'new-player__button'">Continuar </atom-button>
     </form>

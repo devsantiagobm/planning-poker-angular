@@ -1,0 +1,5 @@
+<button [class]="customClass + ' card' " 
+    [ngStyle]="{'width': customWidth ?? 'clamp(38px, 2.25dvw, 56px)'}"
+    [ngClass]="{'card--interactive-background': interactivity === 'background', 'card--interactive-go-up': interactivity === 'go-up', 'card--selected': isActive}">
+    <ng-content></ng-content>
+</button>

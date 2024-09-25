@@ -7,10 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ClassroomModule } from './features/classroom/classroom.module';
 import { SystemDesignModule } from './system-design/system-design.module';
+import { NgxSonnerToaster } from 'ngx-sonner';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, CommonModule, ClassroomModule, SystemDesignModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    ClassroomModule,
+    SystemDesignModule,
+    NgxSonnerToaster
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

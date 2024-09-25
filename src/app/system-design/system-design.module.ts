@@ -6,7 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from './atoms/loader/loader.component';
 import { ModalComponent } from './molecules/modal/modal.component';
 import { RadioInputComponent } from './atoms/radio-input/radio-input.component';
-
+import { CardComponent } from './atoms/card/card.component';
+import { AvatarComponent } from './atoms/avatar/avatar.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { ionClose } from '@ng-icons/ionicons';
 
 
 @NgModule({
@@ -15,17 +18,22 @@ import { RadioInputComponent } from './atoms/radio-input/radio-input.component';
     ButtonComponent,
     LoaderComponent,
     ModalComponent,
-    RadioInputComponent
+    RadioInputComponent,
+    CardComponent,
+    AvatarComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIconsModule.withIcons({ionClose})
   ],
   exports: [
     InputComponent,
     ButtonComponent,
     ModalComponent,
-    RadioInputComponent
+    RadioInputComponent,
+    CardComponent,
+    AvatarComponent
   ]
 })
 export class SystemDesignModule { }
